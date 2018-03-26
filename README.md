@@ -1,6 +1,6 @@
 # btlweb
 Tin tức khoa học
-
+Cài đặt database: import file laravel_demo.sql trong thư mục database vào phpmysql
 Cài đặt tại localhost
 1. Clone project về máy
 2. Di chuyển vào thư mục vừa clone sử dụng cmd hoặc terminal
