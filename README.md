@@ -10,7 +10,10 @@ Sử dụng lệnh copy .env.example .env nếu là Windows hoặc cp .env.examp
 5. Mở .env file và thay đổi database name (DB_DATABASE) của bạn, username (DB_USERNAME) and password (DB_PASSWORD) mà bạn đã cài đặt. 
 Mặc định, username là root và password là rỗng. (This is for Xampp) 
 Mặc định, username là root và password cũng là root. (This is for Lamp)
-6. Sau đó chạy: 
+6. Sau đó chạy:
+
 php artisan key:generate
+
 php artisan migrate
+
 php artisan serve
