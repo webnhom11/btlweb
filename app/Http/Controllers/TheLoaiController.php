@@ -21,7 +21,25 @@ class TheLoaiController extends Controller
 
     public function getThem()
     {
-    	
+    	return view('admin.theloai.them');
+    }
+
+    public function postThem(Request $request){
+        $this->validate($request,
+            [    // chứa lỗi
+                'Ten' => 'required|min:3|max:100'
+            ],
+            [   // chứa thông báo
+                'Ten.required' => 'Bạn chưa nhập tên thể loại',
+                'Ten.min' => 'Tên thể loại phải có độ dài từ 3 cho đến 100 kí tự',
+                'Ten.max' => 'Tên thể loại phải có độ dài từ 3 cho đến 100 kí tự',
+            ]); 
+        $theloai = new TheLoai;
+        $theloai->Ten = $request->Ten; 
+        $theloai->TenKhongDau = changeTitle($request->Ten);
+        $theloai->save();
+
+        return redirect('admin/theloai/them')->with('thongbao', 'Thêm thành công');
     }
 
 }
