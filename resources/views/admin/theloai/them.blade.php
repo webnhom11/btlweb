@@ -16,7 +16,7 @@
                                 @foreach($errors->all() as $err)
                                     {{$err}}<br>
                                 @endforeach
-                            </div>s
+                            </div>
                         @endif
 
                         @if(session('thongbao'))
