@@ -4,19 +4,27 @@ Chuẩn bị:
 Cài đặt database: import file laravel_demo.sql trong thư mục database vào phpmyadmin
 *** Cài đặt PHP 7.1 với Ubuntu
 
- GÕ  1. apt-get install python-software-properties
-     2. add-apt-repository ppa:ondrej/php
-     3. apt-get update
-     4. apt install php7.1 php7.1-xml php7.1-mbstring php7.1-mysql php7.1-json php7.1-curl php7.1-cli php7.1-common php7.1-mcrypt php7.1-gd libapache2-mod-php7.1 php7.1-zip
+ GÕ  
+ 
+ 1. apt-get install python-software-properties
+ 
+ 2. add-apt-repository ppa:ondrej/php
+ 
+ 3. apt-get update
+ 
+ 4. apt install php7.1 php7.1-xml php7.1-mbstring php7.1-mysql php7.1-json php7.1-curl php7.1-cli php7.1-common php7.1-mcrypt php7.1-gd libapache2-mod-php7.1 php7.1-zip
      
 *** Tải composer tại getcomposer.org với windows
 *** Tải composer trên Ubuntu
-  GÕ  1. curl -sS https://getcomposer.org/installer | php
-      2. mv composer.phar /usr/bin/composer
+  GÕ  
+  1. curl -sS https://getcomposer.org/installer | php
+      
+  2. mv composer.phar /usr/bin/composer
       
 *** Tải git với windows
 *** Tải git với Ubuntu
-  GÕ: apt-get install git
+  GÕ: 
+  apt-get install git
   
 Tiến hành: 
 1. Vào thư mục xampp/hdocs với windows và var/html với ubuntu
