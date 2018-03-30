@@ -44,11 +44,25 @@ Route::group(['prefix'=>'admin'],function(){
 	});
 
 	Route::group(['prefix'=>'tintuc'], function(){
-		// admin/theloai/danhsach
-		Route::get('danhsach','TheLoaiController@getDanhSach');
+		// admin/tintuc/danh sach
+		
+		Route::get('danhsach','TinTucController@getDanhSach');
 
-		Route::get('sua','TheLoaiController@getSua');
+		Route::get('sua/{id}','TinTucController@getSua');
+		Route::post('sua/{id}','TinTucController@postSua');
 
-		Route::get('them','TheLoaiController@getThem');
+		Route::get('them','TinTucController@getThem');
+		Route::post('them','TinTucController@postThem');
+
+		Route::get('xoa/{id}','TinTucController@getXoa');
+	});
+
+	Route::group(['prefix'=>'comment'], function(){
+		// admin/tintuc/comment
+		Route::get('xoa/{id}/{idTinTuc}','CommentController@getXoa');
+	});
+
+	Route::group(['prefix'=>'ajax'], function(){
+		Route::get('loaitin/{idTheLoai}', 'AjaxController@getLoaiTin');
 	});
 });
