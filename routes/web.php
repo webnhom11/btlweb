@@ -66,3 +66,9 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('loaitin/{idTheLoai}', 'AjaxController@getLoaiTin');
 	});
 });
+
+
+
+Route::get('trangchu', function(){
+	return view('pages.trangchu');
+});
