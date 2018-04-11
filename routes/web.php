@@ -101,3 +101,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
 Route::get('trangchu', 'PagesController@trangchu');
 Route::get('lienhe', 'PagesController@lienhe');
+Route::get('dangky','PagesController@getDangky');
+Route::post('dangky', 'PagesController@postDangky');
+
+Route::post('timkiem', 'PagesController@timkiem');
