@@ -27,7 +27,9 @@
 				                	<h3>
 				                		<a href="category.html">{{$tl->Ten}}</a> |
 				                		 	@foreach($tl->loaitin as $lt)
-				                				<small><a href="category.html"><i>{{$lt->Ten}}</i></a>/</small>
+				                				<small>
+				                					<a href="loaitin/{{$lt->id}}/{{$lt->TenKhongDau}}.html"><i>{{$lt->Ten}}</i></a>/
+				                				</small>
 				                			@endforeach
 				                	</h3>
 
@@ -40,7 +42,7 @@
 				                	?>
 				                	<div class="col-md-8 border-right">
 				                		<div class="col-md-5">
-					                        <a href="detail.html">
+					                        <a href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">
 					                            <img class="img-responsive" src="upload/tintuc/{{$tin1['Hinh']}}" alt="">
 					                        </a>
 					                    </div>
@@ -48,7 +50,7 @@
 					                    <div class="col-md-7">
 					                        <h3>{{$tin1['TieuDe']}}</h3>
 					                        <p>{{$tin1['TomTat']}}</p>
-					                        <a class="btn btn-primary" href="detail.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+					                        <a class="btn btn-primary" href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">Xem Thêm<span class="glyphicon glyphicon-chevron-right"></span></a>
 										</div>
 
 				                	</div>
@@ -56,7 +58,7 @@
 
 									<div class="col-md-4">
 										@foreach($data->all() as $tintuc)
-											<a href="detail.html">
+											<a href="tintuc/{{$tintuc['id']}}/{{$tintuc['TieuDeKhongDau']}}.html">
 												<h4>
 													<span class="glyphicon glyphicon-list-alt"></span>
 													{{$tintuc['TieuDe']}}

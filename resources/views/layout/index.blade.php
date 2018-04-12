@@ -12,6 +12,7 @@
     <title>Laravel Khoa Pham</title>
 
     <!-- Bootstrap Core CSS -->
+    <base href="{{asset('')}}">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
