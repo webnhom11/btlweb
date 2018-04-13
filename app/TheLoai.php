@@ -16,6 +16,6 @@ class TheLoai extends Model
 
     //lấy tất cả các tin tức
     public function tintuc(){
-    	return $this->hasMantThrough('App\TinTuc', 'App\LoaiTin', 'idTheLoai', 'idLoaiTin', 'id');
+    	return $this->hasManyThrough('App\TinTuc', 'App\LoaiTin', 'idTheLoai', 'idLoaiTin', 'id');
     }
 }
