@@ -9,9 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Laravel Khoa Pham</title>
+    <title>Thế Giới Khoa Học</title>
 
     <!-- Bootstrap Core CSS -->
+    <base href="{{asset('')}}">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
