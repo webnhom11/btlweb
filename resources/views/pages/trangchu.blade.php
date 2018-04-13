@@ -16,7 +16,7 @@
             <div class="col-md-9">
 	            <div class="panel panel-default">            
 	            	<div class="panel-heading" style="background-color:#337AB7; color:white;" >
-	            		<h2 style="margin-top:0px; margin-bottom:0px;">Laravel Tin Tức</h2>
+	            		<h2 style="margin-top:0px; margin-bottom:0px;">Báo cáo</h2>
 	            	</div>
 
 	            	<div class="panel-body">
@@ -25,7 +25,8 @@
 			            		<!-- item -->
 							    <div class="row-item row">
 				                	<h3>
-				                		<a href="category.html">{{$tl->Ten}}</a> |
+				                		<!-- <a href="category.html">{{$tl->Ten}}</a> | -->
+				                		{{$tl->Ten}} |
 				                		 	@foreach($tl->loaitin as $lt)
 				                				<small>
 				                					<a href="loaitin/{{$lt->id}}/{{$lt->TenKhongDau}}.html"><i>{{$lt->Ten}}</i></a>/

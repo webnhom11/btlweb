@@ -42,6 +42,23 @@
                                 <label>Nhập lại password</label>
                                 <input type="password" class="form-control" name="passwordAgain" placeholder="Nhập lại mật khẩu" />
                             </div>
+                         <!--    Vị trí -->
+                            <div class="form-group">
+                                <label>Học hàm/Học vị/Sinh viên</label>
+                                <select class="form-control" name="vitri">
+                                    <option value="SV">Sinh viên</option>
+                                    <option value="GS">Giáo sư</option>
+                                    <option value="PGS">Phó Giáo sư</option>
+                                    <option value="TS">Tiến sĩ</option>
+                                    <option value="THS">Thạc sĩ</option>
+                                </select>
+                            </div>
+                           <!--  Cơ quan -->
+                            <div class="form-group">
+                                <label>Cơ quan/ Trường học</label>
+                                <input class="form-control" name="coquan" placeholder="Nhập tên cơ quan/ trường học đang làm việc/ học tập" />
+                            </div>
+
                             <div class="form-group">
                                 <label>Quyền người dùng</label>
                                 <label class="radio-inline">

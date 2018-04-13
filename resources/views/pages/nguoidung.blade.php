@@ -29,13 +29,13 @@
 				    		<input type="hidden" name="_token"  value="{{csrf_token()}}">
 				    		<div>
 				    			<label>Họ tên</label>
-							  	<input type="text" class="form-control" placeholder="Username" name="name" aria-describedby="basic-addon1" value="{{$nguoidung->name}}">
+							  	<input type="text" class="form-control" placeholder="Username" name="name" aria-describedby="basic-addon1" value="{{$user->name}}">
 							</div>
 							<br>
 							<div>
 				    			<label>Email</label>
 							  	<input type="email" class="form-control" placeholder="Email" name="email" aria-describedby="basic-addon1"
-							  	readonly value="{{$nguoidung->email}}"  
+							  	readonly value="{{$user->email}}"  
 							  	>
 							</div>
 							<br>	
@@ -50,7 +50,7 @@
 							  	<input type="password" class="form-control password" name="passwordAgain" aria-describedby="basic-addon1" disabled>
 							</div>
 							<br>
-							<button type="button" class="btn btn-default">Sửa
+							<button type="submit" class="btn btn-default">Sửa
 							</button>
 
 				    	</form>

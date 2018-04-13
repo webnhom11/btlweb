@@ -94,6 +94,9 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
 	Route::group(['prefix'=>'ajax'], function(){
 		Route::get('loaitin/{idTheLoai}', 'AjaxController@getLoaiTin');
+
+		// Chức năng so sánh
+		Route::get('tintuc/{idLoaiTin}', 'AjaxController@getTinTuc');
 	});
 });
 
@@ -101,10 +104,13 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
 Route::get('trangchu', 'PagesController@trangchu');
 Route::get('lienhe', 'PagesController@lienhe');
+Route::get('gioithieu', 'PagesController@gioithieu');
+Route::get('dangky','PagesController@getDangky');
+Route::post('dangky', 'PagesController@postDangky');
+
+Route::post('timkiem', 'PagesController@timkiem');
 Route::get('loaitin/{id}/{TenKhongDau}.html','PagesController@loaitin');
 Route::get('tintuc/{id}/{TieuDeKhongDau}.html','PagesController@tintuc');
-
-
 
 Route::post('comment/{id}','CommentController@postComment');
 
@@ -113,3 +119,4 @@ Route::post('dangnhap','PagesController@postDangnhap');
 Route::get('dangxuat','PagesController@getDangxuat');
 Route::get('nguoidung','PagesController@getNguoidung');
 Route::post('nguoidung','PagesController@postNguoidung');
+
