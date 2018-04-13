@@ -58,7 +58,9 @@ class PagesController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->quyen = 0;
+        $user->quyen = $request->quyen;
+        $user->ViTri = $request->vitri;
+        $user->CoQuan = $request->coquan;
         $user->save();
 
         return redirect('dangky')->with('thongbao','Đăng ký thành công thành công');

@@ -17,6 +17,8 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Học hàm/Học vị</th>
+                                <th>Cơ quan/Trường học</th>
                                 <th>Level</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
@@ -28,6 +30,8 @@
                                 <td>{{$u->id}}</td>
                                 <td>{{$u->name}}</td>
                                 <td>{{$u->email}}</td>
+                                <td>{{$u->ViTri}}</td>
+                                <td>{{$u->CoQuan}}</td>
                                 <td>
                                     @if($u->quyen == 1)
                                     {{"Admin"}}

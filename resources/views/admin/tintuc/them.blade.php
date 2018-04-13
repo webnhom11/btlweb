@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Tiêu Đề</label>
-                                <input class="form-control" name="TieuDe" placeholder="Nhập tiêu đề" />
+                                <input class="form-control" name="TieuDe" placeholder="Nhập tiêu đề" id="tieude" />
                             </div>
                             <div class="form-group">
                                 <label>Tóm tắt</label>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Nội Dung</label>
-                                <textarea id="demo" name="NoiDung" class="form-control ckeditor" rows="5"></textarea>
+                                <textarea id="noidung" name="NoiDung" class="form-control ckeditor" rows="5"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Hình ảnh</label>
@@ -69,6 +69,7 @@
                             </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
                             <button type="reset" class="btn btn-default">Làm mới</button>
+                            <button id="sosanh" type="button" class="btn btn-default">So sánh</button>
                         <form>
                     </div>
                 </div>
@@ -81,12 +82,34 @@
 @section('script')
     <script>
         $(document).ready(function(){
+            var dulieu;
             $("#TheLoai").change(function(){
                 var idTheLoai = $(this).val();
                 $.get("admin/ajax/loaitin/" + idTheLoai, function(data){
                     $("#LoaiTin").html(data);
                 });
             });
+
+
+            // thêm chức năng so sánh
+            $("#LoaiTin").change(function(){
+                var idLoaiTin = $(this).val();
+                $.get("admin/ajax/tintuc/" + idLoaiTin, function(data){
+                    // $("#LoaiTin").html(data);
+                    console.log(data[0].TieuDe);
+                });
+            });
+
+            $("#sosanh").click(function(){
+                var j = $("#tieude").val();
+                var i = CKEDITOR.instances["noidung"].getData();
+            // if (i.val().length > 0) {
+            //     alert(i);
+            // }
+                //alert(i);
+                Alert(dulieu);
+
+            })  
         });
     </script>
 @endsection

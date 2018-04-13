@@ -94,6 +94,9 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
 	Route::group(['prefix'=>'ajax'], function(){
 		Route::get('loaitin/{idTheLoai}', 'AjaxController@getLoaiTin');
+
+		// Chức năng so sánh
+		Route::get('tintuc/{idLoaiTin}', 'AjaxController@getTinTuc');
 	});
 });
 

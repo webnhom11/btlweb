@@ -45,6 +45,8 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->quyen = $request->quyen;
+        $user->ViTri = $request->vitri;
+        $user->CoQuan = $request->coquan;
         $user->save();
 
         return redirect('admin/user/them')->with('thongbao','Thêm thành công');
@@ -105,7 +107,8 @@ class UserController extends Controller
             'password.min' => 'Password phải có ít nhất 3 ký tự',
             'password.max' => 'Password tối đa là 32 ký tự',
         ]);
-        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password]))
+        {
             return redirect('admin/theloai/danhsach');
         }
         else
