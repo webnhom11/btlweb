@@ -107,3 +107,9 @@ Route::get('tintuc/{id}/{TieuDeKhongDau}.html','PagesController@tintuc');
 
 
 Route::post('comment/{id}','CommentController@postComment');
+
+Route::get('dangnhap','PagesController@getDangnhap');
+Route::post('dangnhap','PagesController@postDangnhap');
+Route::get('dangxuat','PagesController@getDangxuat');
+Route::get('nguoidung','PagesController@getNguoidung');
+Route::post('nguoidung','PagesController@postNguoidung');

@@ -15,10 +15,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Giới thiệu</a>
+                        <a href="gioithieu">Giới thiệu</a>
                     </li>
                     <li>
-                        <a href="#">Liên hệ</a>
+                        <a href="lienhe">Liên hệ</a>
                     </li>
                 </ul>
 
@@ -30,23 +30,25 @@
 			    </form>
 
 			    <ul class="nav navbar-nav pull-right">
-                    <li>
-                        <a href="#">Đăng ký</a>
-                    </li>
-                    <li>
-                        <a href="#">Đăng nhập</a>
-                    </li>
-                    <li>
-                    	<a>
-                    		<span class ="glyphicon glyphicon-user"></span>
-                    		Bùi Đức Phú
-                    	</a>
-                    </li>
+                    @if(!isset($nguoidung))
+                        <li>
+                            <a href="dangky">Đăng ký</a>
+                        </li>
+                        <li>
+                            <a href="dangnhap">Đăng nhập</a>
+                        </li>
+                    @else
+                        <li>
+                        	<a href="nguoidung">
+                        		<span class ="glyphicon glyphicon-user"></span>
+                        		{{$nguoidung->name}}
+                        	</a>
+                        </li>
 
-                    <li>
-                    	<a href="#">Đăng xuất</a>
-                    </li>
-                    
+                        <li>
+                        	<a href="dangxuat">Đăng xuất</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
 
