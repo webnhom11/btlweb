@@ -103,8 +103,11 @@
                                 <tr align="center">
                                     <th>ID</th>
                                     <th>Người dùng</th>
+                                    <th>Vị trí</th>
+                                    <th>Cơ quan</th>
                                     <th>Nội dung </th>
                                     <th>Ngày đăng</th>
+                                    <th>Đánh Giá</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
@@ -113,8 +116,11 @@
                                     <tr class="odd gradeX" align="center">
                                         <td>{{$cm->id}}</td>
                                         <td>{{$cm->user->name}}</td>
+                                        <td>{{$cm->user->ViTri}}</td>
+                                        <td>{{$cm->user->CoQuan}}</td>
                                         <td>{{$cm->NoiDung}}</td>
                                         <td>{{$cm->created_at}}</td>
+                                        <td>{{$cm->DanhGia}}</td>
                                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/comment/xoa/{{$cm->id}}/{{$tintuc->id}}"> Delete</a></td>
                                         </tr>
                                 @endforeach
