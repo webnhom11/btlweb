@@ -25,6 +25,6 @@ class CommentController extends Controller
     	$comment->NoiDung = $request->NoiDung;
     	$comment->save();
 
-    	return redirect("tintuc/$id".$tintuc->TieuDeKhongDau.".html")->with('thongbao','Viết bình luận thành công');
+    	return redirect("tintuc/$id/".$tintuc->TieuDeKhongDau.".html")->with('thongbao','Viết bình luận thành công');
     }
 }
