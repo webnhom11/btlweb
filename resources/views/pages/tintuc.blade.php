@@ -1,4 +1,5 @@
 @extends('layout.index')
+
 @section('content')
 
 <!-- Page Content -->
@@ -34,7 +35,7 @@
 
                 <!-- Blog Comments -->
 				
-				@if(Auth::user())
+				@if(isset($nguoidung))
                 <!-- Comments Form -->
                 <div class="well">
                 	@if(session('thongbao'))
@@ -46,21 +47,6 @@
                         <div class="form-group">
                             <textarea class="form-control" name="NoiDung" rows="3"></textarea>
                         </div>
-                        <tr>
-                        <td>Đánh giá</td>
-                        <td>:&nbsp;<input type="radio" value="1" name="DanhGia"> 1
-                        <input type="radio" value="2" name="DanhGia"> 2
-                        <input type="radio" value="3" name="DanhGia"> 3
-                        <input type="radio" value="4" name="DanhGia"> 4
-                        <input type="radio" value="5" name="DanhGia"> 5
-                        <input type="radio" value="6" name="DanhGia"> 6
-                        <input type="radio" value="7" name="DanhGia"> 7
-                        <input type="radio" value="8" name="DanhGia"> 8
-                        <input type="radio" value="9" name="DanhGia"> 9
-                        <input type="radio" value="10" name="DanhGia"> 10
-                        </td>
-                        </tr>
-                        <br>
                         <button type="submit" class="btn btn-primary">Gửi</button>
                     </form>
                 </div>
@@ -78,7 +64,7 @@
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading">{{$cm->user->name}}
-                            <small>{{$cm->created_at}}</small> <br> <small>{{$cm->user->ViTri}} - {{$cm->user->CoQuan}}</small>
+                            <small>{{$cm->created_at}}</small>
                         </h4>
                         {{$cm->NoiDung}}
                     </div>
