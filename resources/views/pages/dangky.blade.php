@@ -4,7 +4,7 @@
 
 <!-- Page Content -->
     <div class="container">
-
+	<br>
     	<!-- slider -->
     	<div class="row carousel-holder">
             <div class="col-md-2">

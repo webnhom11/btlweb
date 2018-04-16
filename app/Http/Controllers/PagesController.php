@@ -10,6 +10,7 @@ use App\User;
 use App\TinTuc;
 use App\LoaiTin;
 use Illuminate\Support\Facades\Auth;
+use App\DanhGia;
 /**
 * 
 */
@@ -71,8 +72,10 @@ class PagesController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->quyen = 0;
+        $user->ViTri = $request->vitri;
+        $user->CoQuan = $request->coquan;
         $user->save();
-        return redirect('dangky')->with('thongbao','Đăng ký thành công thành công');
+        return redirect('dangky')->with('thongbao','Đăng ký thành công');
 	}
 
 	function loaitin($id)
@@ -85,9 +88,22 @@ class PagesController extends Controller
 	function tintuc($id)
 	{
 		$tintuc = TinTuc::find($id);
-		$tinnoibat = TinTuc::where('NoiBat',1)->take(4)->get();
+		$tinnoibat = TinTuc::where('NoiBat',1)->orderBy('created_at', 'desc')->take(4)->get();
 		$tinlienquan = TinTuc::where('idLoaiTin', $tintuc->idLoaiTin)->take(4)->get();
-		return view('pages.tintuc',['tintuc'=>$tintuc,'tinnoibat'=>$tinnoibat,'tinlienquan'=>$tinlienquan]);
+
+		if(Auth::User() != null)
+		{
+			$idUser = Auth::User()->id;
+			$rate = DanhGia::Where([
+                                ['idUser', $idUser],
+                                ['idTinTuc', $id],
+                            ])->first();
+			return view('pages.tintuc',['tintuc'=>$tintuc,'tinnoibat'=>$tinnoibat,'tinlienquan'=>$tinlienquan,'rate'=>$rate]);
+		}
+		else
+		{
+			return view('pages.tintuc',['tintuc'=>$tintuc,'tinnoibat'=>$tinnoibat,'tinlienquan'=>$tinlienquan]);
+		}	
 	}
 
 	function getDangnhap()

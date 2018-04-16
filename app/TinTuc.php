@@ -17,4 +17,9 @@ class TinTuc extends Model
     {
     	return $this->hasMany('App\Comment', 'idTinTuc', 'id');
     }
+
+    public function danhgia()
+    {
+    	return $this->hasMany('App\DangGia', 'idTinTuc', 'id');
+    }
 }

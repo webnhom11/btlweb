@@ -29,7 +29,8 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    // 'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'mailtrap.io'), 
 
     /*
     |--------------------------------------------------------------------------
@@ -41,8 +42,9 @@ return [
     | stay compatible with the Mailgun e-mail application by default.
     |
     */
-
-    'port' => env('MAIL_PORT', 587),
+    // mail thật 587
+    // dùng mailtrap
+    'port' => env('MAIL_PORT', 2525),
 
     /*
     |--------------------------------------------------------------------------
@@ -119,5 +121,7 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+    "pretend" => false,
 
 ];

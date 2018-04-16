@@ -18,13 +18,6 @@ class AjaxController extends Controller
 
     public function getTinTuc($idLoaiTin){
         $tintuc = TinTuc::Where('idLoaiTin', $idLoaiTin)->get();
-        // foreach ($tintuc as $tt) {
-        //     echo "<option value='".$tt->id."'>".$tt->TomTat."</option>";
-        // }
-		// echo "<pre>"; 
-		//  	print_r($tintuc); 
-		// echo "/<pre>"; 
         return response()->json($tintuc);
      }
-   
 }

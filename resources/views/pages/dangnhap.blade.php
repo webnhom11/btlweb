@@ -3,7 +3,7 @@
 @section('content')
 <!-- Page Content -->
     <div class="container">
-
+		<br>
     	<!-- slider -->
     	<div class="row carousel-holder">
     		<div class="col-md-4"></div>
@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-4"></div>
         </div>
-        <!-- end slide -->
     </div>
     <!-- end Page Content -->
 @endsection
+
