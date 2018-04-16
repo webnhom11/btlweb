@@ -9,6 +9,7 @@ use App\LoaiTin;
 use App\Comment;
 use App\Mail\DemoMail;
 use Mail;
+use App\User;
 
 class TinTucController extends Controller
 {
@@ -73,17 +74,14 @@ class TinTucController extends Controller
 
 
         // Gửi mail
-
         if($request->GuiMail == 1){
-
-            // $data = ['hoten'=>'Tuan'];
-            // Mail::send('emails.mail', $data, function($msg){
-            //     // gửi từ 
-            //     $msg->from('btlnhom11@gmail.com', 'Tuấn');
-            //     // subject là tiêu đê mail
-            //     $msg->to('pokemonred97@gmail.com', 'Óc chó')->subject('Tiêu đề từ btlweb');
-            // });
-            Mail::to('btlnhom11@gmail.com')->send(new DemoMail());
+            $email = User::Select('email')->where('ViTri', 'GS')
+                                            ->orWhere('ViTri', 'PSG')
+                                            ->orWhere('ViTri', 'TS')
+                                            ->get();
+            foreach ($email as $em) {
+                Mail::to($em)->send(new DemoMail());
+            }         
         }
 
         return redirect('admin/tintuc/them')->with('thongbao','Thêm tin thành công');
