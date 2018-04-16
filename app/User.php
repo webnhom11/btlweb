@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function comment(){
         return $this->hasMany('App\Comment', 'idUser', 'id');
     }
+
+    public function danhgia(){
+        return $this->hasMany('App\DanhGia', 'idUser', 'id');
+    }
 }

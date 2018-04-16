@@ -7,6 +7,8 @@ use App\TheLoai;
 use App\TinTuc;
 use App\LoaiTin;
 use App\Comment;
+use App\Mail\DemoMail;
+use Mail;
 
 class TinTucController extends Controller
 {
@@ -47,6 +49,7 @@ class TinTucController extends Controller
         $tintuc->idLoaiTin = $request->LoaiTin;
         $tintuc->TomTat = $request->TomTat;
         $tintuc->NoiDung = $request->NoiDung;
+        $tintuc->NoiBat = $request->NoiBat;
         $tintuc->SoluotXem = 0;
 
         if($request->hasFile('Hinh')){
@@ -67,6 +70,21 @@ class TinTucController extends Controller
             $tintuc->Hinh = "";
         }
         $tintuc->save();
+
+
+        // Gửi mail
+
+        if($request->GuiMail == 1){
+
+            // $data = ['hoten'=>'Tuan'];
+            // Mail::send('emails.mail', $data, function($msg){
+            //     // gửi từ 
+            //     $msg->from('btlnhom11@gmail.com', 'Tuấn');
+            //     // subject là tiêu đê mail
+            //     $msg->to('pokemonred97@gmail.com', 'Óc chó')->subject('Tiêu đề từ btlweb');
+            // });
+            Mail::to('btlnhom11@gmail.com')->send(new DemoMail());
+        }
 
         return redirect('admin/tintuc/them')->with('thongbao','Thêm tin thành công');
     }

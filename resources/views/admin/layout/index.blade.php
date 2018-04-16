@@ -60,6 +60,10 @@
     <script src="admin_asset/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
     <script src="admin_asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 
+    <!-- Chức năng so sánh -->
+    <script src="admin_asset/stopwords.txt"></script>
+    <script src="admin_asset/dist/js/cosim.js"></script>
+
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {

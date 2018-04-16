@@ -120,3 +120,4 @@ Route::get('dangxuat','PagesController@getDangxuat');
 Route::get('nguoidung','PagesController@getNguoidung');
 Route::post('nguoidung','PagesController@postNguoidung');
 
+Route::post('danhgia/{id}','DanhGiaController@postDanhGia');

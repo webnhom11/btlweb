@@ -50,7 +50,7 @@
 
 					                    <div class="col-md-7">
 					                        <h3>{{$tin1['TieuDe']}}</h3>
-					                        <p>{{$tin1['TomTat']}}</p>
+					                        <p>{{str_limit($tin1['TomTat'], 100)}}</p> <!-- Giới hạn 100 kí tự -->
 					                        <a class="btn btn-primary" href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">Xem Thêm<span class="glyphicon glyphicon-chevron-right"></span></a>
 										</div>
 
