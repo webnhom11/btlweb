@@ -109,7 +109,7 @@
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading">{{$cm->user->name}}
-                            <small>{{$cm->created_at}}</small>
+                            <small>{{$cm->created_at}}</small> <br> <small>{{$cm->user->ViTri}} - {{$cm->user->CoQuan}}</small>
                         </h4>
                         {{$cm->NoiDung}}
                     </div>
