@@ -5566,3 +5566,7 @@ guoidung.blade.php) at D:\\xampp\\htdocs\\demo\\btlweb\\storage\\framework\\view
 #35 D:\\xampp\\htdocs\\demo\\btlweb\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #36 {main}
 "} 
+[2018-04-17 07:09:21] local.ERROR: Maximum execution time of 30 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 30 seconds exceeded at C:\\xampp\\htdocs\\www\\btlweb\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\ResponseTrait.php:9)
+[stacktrace]
+#0 {main}
+"} 
