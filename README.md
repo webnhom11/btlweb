@@ -12,6 +12,9 @@ Mặc định, username là root và password là rỗng. (This is for Xampp)
 Mặc định, username là root và password cũng là root. (This is for Lamp)
 6. Sau đó chạy: 
   composer require guzzlehttp/guzzle
+  
   php artisan key:generate
+  
   php artisan migrate
+  
   php artisan serve
