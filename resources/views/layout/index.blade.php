@@ -1,48 +1,161 @@
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weblog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Weblog a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <meta id="token" name="token" content="{{ csrf_token() }}">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-    <title>Thế Giới Khoa Học</title>
-
-    <!-- Bootstrap Core CSS -->
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
     <base href="{{asset('')}}">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/jquery.desoslide.css">
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
-    <link href="css/my.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-	@yield('css')
-
+        @yield('css')
 </head>
 
 <body>
-
-	@include('layout.header')
+    
+    @include('layout.header')
 
     @yield('content')
   
     @include('layout.footer')
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/my.js"></script>
+    
+    <!-- js -->
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!-- desoslide-JavaScript -->
+    <script src="js/jquery.desoslide.js"></script>
+    <!-- <script>
+        $('#demo1_thumbs').desoSlide({
+            main: {
+                container: '#demo1_main_image',
+                cssClass: 'img-responsive'
+            },
+            effect: 'sideFade',
+            caption: true
+        });
+    </script> -->
 
-	@yield('script')
+    <!-- requried-jsfiles-for owl -->
+    <script>
+        $(window).load(function () {
+            $("#flexiselDemo1").flexisel({
+                visibleItems: 3,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint: 480,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint: 640,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint: 768,
+                        visibleItems: 3
+                    }
+                }
+            });
+
+        });
+    </script>
+    <script>
+        $(window).load(function () {
+            $("#flexiselDemo2").flexisel({
+                visibleItems: 3,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint: 480,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint: 640,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint: 768,
+                        visibleItems: 3
+                    }
+                }
+            });
+
+        });
+    </script>
+    <script src="js/jquery.flexisel.js"></script>
+    <!-- //password-script -->
+    <!--/ start-smoth-scrolling -->
+    <script src="js/move-top.js"></script>
+    <script src="js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <!--// end-smoth-scrolling -->
+
+    <script>
+        $(document).ready(function () {
+            
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear' 
+            };
+            
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <a href="#home" class="scroll" id="toTop" style="display: block;">
+        <span id="toTopHover" style="opacity: 1;"> </span>
+    </a>
+
+    <!-- //Custom-JavaScript-File-Links -->
+    <script src="js/bootstrap.js"></script>
+
+    @yield('script')
 </body>
 
 </html>

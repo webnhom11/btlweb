@@ -16,7 +16,7 @@ class CommentController extends Controller
         return redirect('admin/tintuc/sua/'.$idTinTuc)->with('thongbao', 'Xóa comment thành công');
     }
 
-    public function postComment($id, Request $request){
+    public function postComment($id, Request $request){     
     	$idTinTuc = $id;
     	$tintuc = TinTuc::find($id);
     	$comment = new Comment;

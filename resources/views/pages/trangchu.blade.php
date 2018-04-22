@@ -1,84 +1,117 @@
 @extends('layout.index')
 
 @section('content')
+    
+    @include('layout.slide')
+	<section class="bottom-slider">
+		<div class="course_demo1">
+			<h2 style="text-align: center; margin-bottom: 10px">Tin mới</h2>
+			<ul id="flexiselDemo1">
+				@foreach($tinmoi as $tm)	                
+					<li>
+						<div class="blog-item">
+							<a href="tintuc/{{$tm->id}}/{{$tm->TieuDeKhongDau}}.html">
+								<img src="upload/tintuc/{{$tm->Hinh}}" alt=" " class="img-fluid" />
+							</a>
 
-<!-- Page Content -->
-    <div class="container">
+							<div class="floods-text">
 
-    	@include('layout.slide')
+								<h3><a href="tintuc/{{$tm->id}}/{{$tm->TieuDeKhongDau}}.html" style="color: white">{{$tm->TieuDe}}</a>
+									<span>{{$tm->loaitin->theloai->Ten}}
+										<label>|</label>
+										<i>{{$tm->loaitin->Ten}}</i>
+									</span>
+								</h3>
+							</div>
+						</div>
+					</li>
+					@endforeach				
+			</ul>
+		</div>
+	</section>
+	<!--/main-->
+	<section class="main-content-w3layouts-agileits">
+		<div class="container">
+			<div class="row">
+				<!--left-->	
+				@include('layout.right')	
+				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">	
+					<!-- @foreach($theloai as $tl)
+                    @if(count($tl->loaitin) > 0) -->
 
-        <div class="space20"></div>
+                    <?php
+                        // Lấy các tin nổi bật sắp xếp theo ngày
+                        $data = $tl->tintuc->sortByDesc('created_at')->take(2);
+                        // lấy ra 1 tin từ data, sau đó data còn 4 tin. tin1 là một mảng
+                        $tin1 = $tl->tintuc->where('NoiBat',1)->sortByDesc('created_at')->take(1)->shift()
+                    ?>					
+					<h3 style="font-size: 1.1em;
+							    color: #fff;
+							    margin: 0;
+							    background: #01cd74;
+							    padding: .8em 1em;
+							    text-transform: uppercase;
+							    font-weight: 400;">{{$tl->Ten}}</h3>
+					<div class="blog-grid-top">
+						<div class="b-grid-top">
+							<div class="blog_info_left_grid">
+								<a href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">
+									<img src="upload/tintuc/{{$tin1['Hinh']}}" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="blog-info-middle">
+								<ul>
+									<li>
+										<a href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">
+											<i class="far fa-calendar-alt"></i>{{$tin1['created_at']}}</a>
+									</li>									
+								</ul>
+							</div>
+						</div>
 
-
-        <div class="row main-left">
-            @include('layout.menu')
-
-            <div class="col-md-9">
-	            <div class="panel panel-default">            
-	            	<div class="panel-heading" style="background-color:#337AB7; color:white;" >
-	            		<h2 style="margin-top:0px; margin-bottom:0px;">Báo cáo</h2>
-	            	</div>
-
-	            	<div class="panel-body">
-	            		@foreach($theloai as $tl)
-	            			@if(count($tl->loaitin) > 0)
-			            		<!-- item -->
-							    <div class="row-item row">
-				                	<h3>
-				                		<!-- <a href="category.html">{{$tl->Ten}}</a> | -->
-				                		{{$tl->Ten}} |
-				                		 	@foreach($tl->loaitin as $lt)
-				                				<small>
-				                					<a href="loaitin/{{$lt->id}}/{{$lt->TenKhongDau}}.html"><i>{{$lt->Ten}}</i></a>/
-				                				</small>
-				                			@endforeach
-				                	</h3>
-
-				                	<?php
-				                		// Lấy các tin nổi bật sắp xếp theo ngày
-				                		$data = $tl->tintuc->where('NoiBat',1)->sortByDesc('created_at')->take(5);
-				                		// lấy ra 1 tin từ data, sau đó data còn 4 tin. tin1 là một mảng
-				                		$tin1 = $data->shift()
-
-				                	?>
-				                	<div class="col-md-8 border-right">
-				                		<div class="col-md-5">
-					                        <a href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">
-					                            <img class="img-responsive" src="upload/tintuc/{{$tin1['Hinh']}}" alt="">
-					                        </a>
-					                    </div>
-
-					                    <div class="col-md-7">
-					                        <h3>{{$tin1['TieuDe']}}</h3>
-					                        <p>{{str_limit($tin1['TomTat'], 100)}}</p> <!-- Giới hạn 100 kí tự -->
-					                        <a class="btn btn-primary" href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">Xem Thêm<span class="glyphicon glyphicon-chevron-right"></span></a>
-										</div>
-
-				                	</div>
-				                    
-
-									<div class="col-md-4">
-										@foreach($data->all() as $tintuc)
+						<h3>
+							<a href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">{{$tin1['TieuDe']}}</a>
+						</h3>
+						<p>{!!str_limit($tin1['TomTat'], 200)!!}</p>
+						<a href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html" class="btn btn-primary read-m">Xem tiếp</a>
+						<br>
+						<br>
+						<div class="row">
+							@foreach($data->all() as $tintuc)
+								<div class="col-md-6 blog-grid-top">
+									<div class="b-grid-top">
+										<div class="blog_info_left_grid">
 											<a href="tintuc/{{$tintuc['id']}}/{{$tintuc['TieuDeKhongDau']}}.html">
-												<h4>
-													<span class="glyphicon glyphicon-list-alt"></span>
-													{{$tintuc['TieuDe']}}
-												</h4>
+												<img src="upload/tintuc/{{$tintuc['Hinh']}}" class="img-fluid" alt="">
 											</a>
-										@endforeach
-									</div>
-									
-									<div class="break"></div>
-				                </div>
-				                <!-- end item -->
-				            @endif
-		            	@endforeach
-					</div>
-	            </div>
-        	</div>
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- end Page Content -->
+											<ul class="blog-icons">
+												<li>
+													<a href="tintuc/{{$tintuc['id']}}/{{$tintuc['TieuDeKhongDau']}}.html">
+														<i class="far fa-clock"></i>{{$tintuc['created_at']}}</a>
+												</li>
+												<li>
+													<a href="tintuc/{{$tintuc['id']}}/{{$tintuc['TieuDeKhongDau']}}.html">
+														<i class="fas fa-eye"></i>{{$tintuc['SoLuotXem']}}</a>
+												</li>
+												
+											</ul>
+										</div>
+										<h3>
+											<a href="tintuc/{{$tintuc['id']}}/{{$tintuc['TieuDeKhongDau']}}.html">{{$tintuc['TieuDe']}}</a>
+										</h3>										
+									</div>	
+								</div>	
+							@endforeach							
+						</div>
+					</div>	
+					<!-- @endif
+					@endforeach	 -->			
+				</div>									
+			</div>
+		</div>
+	</section>
+	<!--//main-->
+	<!---->
 
+		<!--//main-->
  @endsection

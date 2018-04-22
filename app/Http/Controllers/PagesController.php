@@ -19,9 +19,13 @@ class PagesController extends Controller
 	//mỗi khi khởi tạo sẽ đưa biến theloai đến các page
 	function __construct(){
 		$theloai = TheLoai::all();
-		$slide = Slide::all();
+		$slide = Slide::orderBy('created_at', 'desc')->take(3)->get();	
+		$tinmoi = TinTuc::orderBy('created_at', 'desc')->take(5)->get();
+		$tinnoibat = TinTuc::where('NoiBat',1)->orderBy('created_at', 'desc')->take(5)->get();	
 		view()->share('slide',$slide);
 		view()->share('theloai',$theloai);
+		view()->share('tinnoibat',$tinnoibat);
+		view()->share('tinmoi',$tinmoi);
 
 		if(Auth::check())
 		{
@@ -31,7 +35,7 @@ class PagesController extends Controller
 	}
 
 	function trangchu()
-	{		
+	{				
 		return view('pages.trangchu');
 	}
 
@@ -81,7 +85,7 @@ class PagesController extends Controller
 	function loaitin($id)
 	{		
 		$loaitin = LoaiTin::find($id);
-		$tintuc = TinTuc::where('idLoaiTin', $id)->paginate(5);
+		$tintuc = TinTuc::where('idLoaiTin', $id)->paginate(6);
 		return view('pages.loaitin',['loaitin'=>$loaitin, 'tintuc'=>$tintuc]);
 	}
 
@@ -158,6 +162,8 @@ class PagesController extends Controller
         ]);
         $user = Auth::user();
         $user->name = $request->name;
+        $user->ViTri = $request->vitri;
+        $user->CoQuan = $request->coquan;
         if($request->changePassword == "on"){
             $this->validate($request,[
             'password' => 'required|min:3|max:32',
@@ -178,7 +184,7 @@ class PagesController extends Controller
 	function timkiem(Request $request){
 		$tukhoa = $request ->tukhoa;
 		//tìm theo tiêu đề, tóm tắt, nội dung. giới hạn tin tìm được bằng take
-		$tintuc = TinTuc::where('TieuDe', 'like', "%$tukhoa%")->orWhere('TomTat','like',"%$tukhoa%")->orWhere('NoiDung', 'like', "%$tukhoa%")->take(20)->paginate(5);
+		$tintuc = TinTuc::where('TieuDe', 'like', "%$tukhoa%")->orWhere('TomTat','like',"%$tukhoa%")->orWhere('NoiDung', 'like', "%$tukhoa%")->take(18)->paginate(6);
 		return view('pages.timkiem', ['tintuc'=>$tintuc, 'tukhoa'=>$tukhoa]);
 	}
 

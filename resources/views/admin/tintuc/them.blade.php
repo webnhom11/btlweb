@@ -136,7 +136,8 @@
                 var idLoaiTin = $(this).val();
                 $.get("admin/ajax/tintuc/" + idLoaiTin, function(data){
                     // $("#LoaiTin").html(data);
-                   // console.log(data[0].TieuDe);
+                    console.log(data);
+
                    dulieu = data;
                 });
             }); 
@@ -159,7 +160,7 @@
                 // lấy dữ liệu nhập từ nội dung
                 var noidung = CKEDITOR.instances["noidung"].getData();
                 // $('#test').html(noidung);
-                // console.log(dulieu);
+                console.log(dulieu);
                 for (i = 0; i < dulieu.length; i++) {
                     compare(noidung, dulieu[i].NoiDung, dsSoSanh);
                 }
@@ -168,8 +169,9 @@
                 var table = '';
 
                 for(var r = 0; r < dulieu.length; r++){
+                    var url = 'tintuc/' + dulieu[r].id + '/' + dulieu[r].TieuDeKhongDau + '.html';
                     table += '<tr>';
-                        table += '<td>' + dulieu[r].TieuDe + '</td>';
+                        table += '<td><a href="' + url + '">' + dulieu[r].TieuDe + '</a></td>';
                         table += '<td>' + dsSoSanh[r] + '</td>';
                     table += '</tr>';
                 }

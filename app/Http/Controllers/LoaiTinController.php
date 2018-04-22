@@ -53,12 +53,11 @@ class LoaiTinController extends Controller
     public function postSua(Request $request, $id){
     	$this->validate($request,
     		[
-    			'Ten' => 'required|unique:LoaiTin,Ten|min:1|max:100',
+    			'Ten' => 'required|min:1|max:100',
     			'TheLoai' => 'required'
     		],
     		[
     			'Ten.required' => 'Bạn chưa nhập tên loại tin',
-    			'Ten.unique' => 'Loại tin đã tồn tại',
     			'Ten.min' => 'Tên loại tin phải có độ dài từ 1 đến 100 lí tự',
     			'Ten.max' => 'Tên loại tin phải có độ dài từ 1 đến 100 lí tự',
     			'TheLoai.required' => 'Bạn chưa chọn thể loại',

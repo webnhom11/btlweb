@@ -59,6 +59,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 		Route::post('them','TinTucController@postThem');
 
 		Route::get('xoa/{id}','TinTucController@getXoa');
+		Route::get('mail/{id}','TinTucController@sendMail');
 	});
 
 	Route::group(['prefix'=>'comment'], function(){
@@ -112,6 +113,7 @@ Route::post('timkiem', 'PagesController@timkiem');
 Route::get('loaitin/{id}/{TenKhongDau}.html','PagesController@loaitin');
 Route::get('tintuc/{id}/{TieuDeKhongDau}.html','PagesController@tintuc');
 
+
 Route::post('comment/{id}','CommentController@postComment');
 
 Route::get('dangnhap','PagesController@getDangnhap');
@@ -120,4 +122,12 @@ Route::get('dangxuat','PagesController@getDangxuat');
 Route::get('nguoidung','PagesController@getNguoidung');
 Route::post('nguoidung','PagesController@postNguoidung');
 
-Route::post('danhgia/{id}','DanhGiaController@postDanhGia');
+Route::post('danhgia/{id}/{star}','DanhGiaController@postDanhGia');
+
+// Route::get('tintuc',function(){
+// 	return view('pages.tintuc');
+// });
+
+// Route::get('loaitin',function(){
+// 	return view('pages.loaitin');
+// });

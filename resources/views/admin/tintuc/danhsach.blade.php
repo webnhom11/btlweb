@@ -11,6 +11,11 @@
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
+                    @if(session('thongbao'))
+                            <div class="alert alert-success">
+                                {{session('thongbao')}}
+                            </div>
+                    @endif
                     
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
@@ -22,6 +27,7 @@
                                 <th>Loại tin</th>
                                 <th>Xem</th>
                                 <th>Nổi bật</th>
+                                <th>Gửi mail</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
@@ -43,7 +49,8 @@
                                         @else {{'Có'}}
                                         @endif
                                     </td>
-                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/tintuc/xoa/{{$tt->id}}"> Delete</a></td>
+                                    <td class="center"><i class="fa fa-send-o  fa-fw"></i><a href="admin/tintuc/mail/{{$tt->id}}" class="send"> Gửi mail</a></td>
+                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/tintuc/xoa/{{$tt->id}}" class="delete"> Delete</a></td>
                                     <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/tintuc/sua/{{$tt->id}}">Edit</a></td>
                                 </tr>
                             @endforeach
@@ -55,3 +62,14 @@
             <!-- /.container-fluid -->
         </div>
         @endsection
+@section('script')
+<script type="text/javascript">
+    $(".delete").on("click", function(){
+        return confirm("Bạn có muốn xóa tin này");
+    });
+
+    $(".send").on("click", function(){
+        return confirm("Bạn có muốn gửi mail thông báo các chuyên gia vào đánh giá");
+    });
+</script>
+@endsection
