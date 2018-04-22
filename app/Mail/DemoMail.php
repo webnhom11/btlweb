@@ -10,15 +10,17 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class DemoMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $TieuDe;
+    public $Url;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($TieuDe, $Url)
     {
-        //
+        $this->TieuDe = $TieuDe;
+        $this->Url = $Url;
     }
 
     /**

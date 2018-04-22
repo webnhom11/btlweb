@@ -1,80 +1,77 @@
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="trangchu">Thế Giới Khoa Học</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="gioithieu">Giới thiệu</a>
-                    </li>
-                    <li>
-                        <a href="lienhe">Liên hệ</a>
-                    </li>
-                </ul>
+<!--Header-->
 
-                <form action="timkiem" method="post" class="navbar-form navbar-left" role="search">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-			        <div class="form-group">
-			          <input type="text" name="tukhoa" class="form-control" placeholder="Tìm kiếm">
-			        </div>
-			        <button type="submit" class="btn btn-default">Tìm</button>
-			    </form>
-
-			    <ul class="nav navbar-nav pull-right">
-                    <!-- @if(!isset($nguoidung))
-                        <li>
-                            <a href="dangky">Đăng ký</a>
-                        </li>
-                        <li>
-                            <a href="dangnhap">Đăng nhập</a>
-                        </li>
-                    @else
-                        <li>
-                        	<a href="nguoidung">
-                        		<span class ="glyphicon glyphicon-user"></span>
-                        		{{$nguoidung->name}}
-                        	</a>
-                        </li>
-
-                        <li>
-                        	<a href="dangxuat">Đăng xuất</a>
-                        </li>
-                    @endif -->
+    <header>
+        <div class="top-bar_sub_w3layouts container-fluid">
+            <div class="row">
+                <div class="col-md-3 logo text-left">
+                    <a class="navbar-brand" href="trangchu">
+                        <i class="fab fa-linode"></i> Weblog</a>
+                </div>
+                <div class="col-md-6 top-forms text-center mt-lg-3 mt-md-1 mt-0">                  
                     @if(Auth::User() != null)
-                        <li>
+                        <span>Welcome Back!</span>
+                        <span class="mx-lg-4 mx-md-2  mx-1">
                             <a href="nguoidung">
-                                <span class="glyphicon glyphicon-user"></span>
-                                {{Auth::User()->name}}
+                                <i class="far fa-user"></i>{{Auth::User()->name}}</a>
+                        </span>
+                        <span>
+                            <a href="dangxuat">
+                                <i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                        </span>
+                    @else
+                        <span>Welcome to Weblog!</span>
+                        <span class="mx-lg-4 mx-md-2  mx-1">
+                            <a href="dangnhap">
+                                <i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                        </span>
+                        <span>
+                            <a href="dangky">
+                                <i class="fas fa-user-plus"></i> Đăng kí</a>
+                        </span>
+                    @endif﻿
+                </div>
+                <div class="col-md-3 log-icons text-right">
+
+                    <ul class="social_list1 mt-3">
+
+                        <li>
+                            <a href="#" class="facebook1 mx-2" >
+                                <i class="fab fa-facebook-f"></i>
+
                             </a>
                         </li>
+                        <li>
+                            <a href="#" class="twitter2">
+                                <i class="fab fa-twitter"></i>
 
-                        <li>
-                            <a href="dangxuat">Đăng xuất</a>
-                        </li>
-                    @else
-                        <li>
-                            <a href="dangky">Đăng ký</a>
+                            </a>
                         </li>
                         <li>
-                            <a href="dangnhap">Đăng nhập</a>
+                            <a href="#" class="dribble3 mx-2">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
                         </li>
-                    @endif﻿
-                </ul>
+                        <li>
+                            <a href="#" class="pin">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-
-            
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
+
+            <div class="header_top" id="home">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <button class="navbar-toggler navbar-toggler-right mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                   </button>
+
+
+                    @include('layout.menu')
+                </nav>
+
+            </div>
+    </header>
+    <!--//header-->

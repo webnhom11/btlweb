@@ -79,6 +79,7 @@ class TinTucController extends Controller
                                             ->orWhere('ViTri', 'PSG')
                                             ->orWhere('ViTri', 'TS')
                                             ->get();
+
             foreach ($email as $em) {
                 Mail::to($em)->send(new DemoMail());
             }         
@@ -100,7 +101,7 @@ class TinTucController extends Controller
         $this->validate($request,
         [
             'LoaiTin'=>'required', 
-            'TieuDe'=>'required|min:3|unique:TinTuc,TieuDe',
+            'TieuDe'=>'required|min:3',
             'TomTat'=>'required', 
             'NoiDung'=>'required'
         ],
@@ -108,7 +109,6 @@ class TinTucController extends Controller
         'LoaiTin.required'=>'Bạn chưa chọn loại tin',
         'TieuDe.required'=>'Bạn chưa nhập tiêu đề',
         'TieuDe.min'=>'Tiêu đề phải có ít nhất 3 kí tự',
-        'TieuDe.unique'=>'Tiêu đề đã tồn tại',
         'TomTat.required'=>'Bạn chưa nhập tóm tắt',
         'NoiDung.required'=>'Bạn chưa nhập nội dung',
         ]);
@@ -117,6 +117,7 @@ class TinTucController extends Controller
         $tintuc->idLoaiTin = $request->LoaiTin;
         $tintuc->TomTat = $request->TomTat;
         $tintuc->NoiDung = $request->NoiDung;
+        $tintuc->NoiBat = $request->NoiBat;
 
        if($request->hasFile('Hinh')){
             $file = $request->file('Hinh');
@@ -131,7 +132,9 @@ class TinTucController extends Controller
             }
 
             $file->move("upload/tintuc",$Hinh);
-            unlink("upload/tintuc/".$tintuc->Hinh);
+            if($tintuc->Hinh){
+                unlink("upload/tintuc/".$tintuc->Hinh);
+            }
             $tintuc->Hinh = $Hinh;
         }
         $tintuc->save();
@@ -144,5 +147,21 @@ class TinTucController extends Controller
             $tintuc->delete();
 
             return redirect('admin/tintuc/danhsach')->with('thongbao','Xoá thành công');
+    }
+
+    public function sendMail($id){
+        $tintuc = TinTuc::find($id);
+        $TieuDe = $tintuc->TieuDe;
+        $Url = 'tintuc/'.$tintuc->id.'/'.$tintuc->TieuDeKhongDau.'.html';
+        $email = User::Select('email')->where('ViTri', 'GS')
+                                            ->orWhere('ViTri', 'PSG')
+                                            ->orWhere('ViTri', 'TS')
+                                            ->get();
+
+        foreach ($email as $em) {
+            Mail::to($em)->send(new DemoMail($TieuDe, $Url));
+        }
+      //  return view('emails.mail');
+        return redirect('admin/tintuc/danhsach')->with('thongbao','Gửi thành công');
     }
 }
