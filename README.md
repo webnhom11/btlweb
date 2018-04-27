@@ -20,3 +20,14 @@ Mặc định, username là root và password cũng là root. (This is for Lamp)
   php artisan migrate
   
   php artisan serve
+  
+8. 
+Trang chủ  ./btlweb/public/trangchu
+  
+Trang Admin ./bltweb/public/public/admin/dangnhap
+
+user: tuandht97@gmail.com
+
+pass: 123456 
+
+Sau khi đăng nhập có thể tự thêm tài khoản admin
