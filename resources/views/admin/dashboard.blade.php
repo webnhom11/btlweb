@@ -186,7 +186,7 @@
                                                 </a>
                                             </div>
                                             <p>
-                                                Tác giả 
+                                                {{$cm->user->name}}
                                                 <small class="pull-right text-muted">
                                                     <i class="fa fa-clock-o fa-fw"></i>{{$cm->created_at->diffForHumans()}}
                                                 </small>
