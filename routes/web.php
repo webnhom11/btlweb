@@ -20,7 +20,10 @@ Route::get('admin/dangnhap','UserController@getDangnhapAdmin');
 Route::post('admin/dangnhap','UserController@postDangnhapAdmin');
 Route::get('admin/logout','UserController@getDangXuatAdmin');
 
-Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
+Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){	
+
+	Route::get('dashboard','PagesController@dashboard');
+
 	Route::group(['prefix'=>'theloai'], function(){
 		// admin/theloai/danhsach
 		Route::get('danhsach','TheLoaiController@getDanhSach');
@@ -65,6 +68,14 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 	Route::group(['prefix'=>'comment'], function(){
 		// admin/tintuc/comment
 		Route::get('xoa/{id}/{idTinTuc}','CommentController@getXoa');
+		Route::get('xoa/{id}','CommentController@getXoaBL');
+		Route::get('danhsach','CommentController@getPhanHoi');
+	});
+
+	Route::group(['prefix'=>'thuvien'], function(){
+		// admin/tintuc/thuvien
+		Route::get('danhsach','ThuVienController@thuvien');
+		Route::post('danhsach','ThuVienController@postThemAnh');
 	});
 
 	Route::group(['prefix'=>'slide'], function(){
@@ -102,6 +113,9 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 });
 
 
+// Route::get('admin/dashboard','PagesController@dashboard');
+// Route::get('admin/phanhoi','PagesController@getPhanHoi');
+// Route::post('admin/phanhoi/{id}','PagesController@postPhanHoi');
 
 Route::get('trangchu', 'PagesController@trangchu');
 Route::get('lienhe', 'PagesController@lienhe');

@@ -23,8 +23,8 @@
                                 <th>ID</th>
                                 <th>Tên</th>
                                 <th>Thể loại</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
+                                <th>Xóa</th>
+                                <th>Sửa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,8 +33,8 @@
                                 <td>{{$lt -> id}}</td>
                                 <td>{{$lt -> Ten}}</td>
                                 <td>{{$lt -> theloai -> Ten}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/loaitin/xoa/{{$lt->id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/loaitin/sua/{{$lt->id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/loaitin/xoa/{{$lt->id}}">Xóa</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/loaitin/sua/{{$lt->id}}">Sửa</a></td>
                             </tr>
                             @endforeach
                         </tbody>

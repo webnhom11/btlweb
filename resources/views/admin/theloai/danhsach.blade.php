@@ -22,8 +22,8 @@
                             <tr align="center">
                                 <th>ID</th>
                                 <th>Tên</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
+                                <th>Xóa</th>
+                                <th>Sửa</th>
                             </tr>
                         </thead>
                         <tbody> 
@@ -31,8 +31,8 @@
                             <tr class="odd gradeX" align="center">
                                 <td>{{$tl -> id}}</td>
                                 <td>{{$tl -> Ten}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/theloai/xoa/{{$tl -> id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/theloai/sua/{{$tl -> id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/theloai/xoa/{{$tl -> id}}"> Xóa</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/theloai/sua/{{$tl -> id}}">Sửa</a></td>
                             </tr>
                             @endforeach
                         </tbody>

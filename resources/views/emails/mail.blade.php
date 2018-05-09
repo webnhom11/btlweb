@@ -81,17 +81,7 @@
 </head>
  
 <body>
-<!-- <h2>Thư mời</h2>
-<br/>
-<p>Cảm ơn ngài đã luôn theo dõi trang web của chúng tôi.<p>
-<br>
-Chúng tôi mới đăng một bài viết trên trang web.
-<br>
-Để có được những bài viết hay, chính xác. Chúng tôi rất mong nhận được ý kiến tham gia đóng góp từ ngài.
-<br>
-Rất mong nhận được sự quan tâm, tham gia góp ý.
-<br>
-Xin chân thành cảm ơn! -->
+
 <table style="min-width:320px;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#eaeced">
 			<!-- fix for gmail -->
 			<tr>
@@ -123,7 +113,7 @@ Xin chân thành cảm ơn! -->
 													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#888; padding:0 0 23px;">
 														Để có được những bài viết hay, chính xác. Chúng tôi rất mong nhận được ý kiến tham gia đóng góp từ ngài.
 														<br>
-														Rất mong nhận được sự quan tâm, tham gia góp ý.
+														Hi vọng sẽ nhận được sự quan tâm, tham gia góp ý.
 														<br>
 														Xin chân thành cảm ơn!
 													</td>

@@ -11,6 +11,7 @@ use App\TinTuc;
 use App\LoaiTin;
 use Illuminate\Support\Facades\Auth;
 use App\DanhGia;
+use App\Comment;
 /**
 * 
 */
@@ -32,6 +33,17 @@ class PagesController extends Controller
 			view()->share('nguoidung',Auth::user());
 		}
 
+	}
+
+	function dashboard()
+	{				
+		$tl = TheLoai::count();
+		$lt = LoaiTin::count();
+		$tt = TinTuc::count();
+		$us = User::count();
+		$tincapnhat = TinTuc::orderBy('updated_at', 'desc')->take(5)->get();
+		$comment = Comment::orderBy('created_at', 'desc')->take(5)->get();
+		return view('admin.dashboard',['tincapnhat'=>$tincapnhat, 'comment'=>$comment, 'tl'=>$tl, 'lt'=>$lt, 'tt'=>$tt, 'us'=>$us]);
 	}
 
 	function trangchu()
@@ -92,6 +104,7 @@ class PagesController extends Controller
 	function tintuc($id)
 	{
 		$tintuc = TinTuc::find($id);
+		$tintuc->increment('SoLuotXem');
 		$tinnoibat = TinTuc::where('NoiBat',1)->orderBy('created_at', 'desc')->take(4)->get();
 		$tinlienquan = TinTuc::where('idLoaiTin', $tintuc->idLoaiTin)->take(4)->get();
 
@@ -187,6 +200,5 @@ class PagesController extends Controller
 		$tintuc = TinTuc::where('TieuDe', 'like', "%$tukhoa%")->orWhere('TomTat','like',"%$tukhoa%")->orWhere('NoiDung', 'like', "%$tukhoa%")->take(18)->paginate(6);
 		return view('pages.timkiem', ['tintuc'=>$tintuc, 'tukhoa'=>$tukhoa]);
 	}
-
 	
 }

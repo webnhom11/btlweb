@@ -16,7 +16,7 @@ class TinTucController extends Controller
     //
     public function getDanhSach()
     {
-        $tintuc = TinTuc::orderBy('id', 'DESC')->get();
+        $tintuc = TinTuc::orderBy('created_at', 'DESC')->get();
         return view('admin.tintuc.danhsach', ['tintuc'=>$tintuc]);
     }
 
@@ -152,7 +152,7 @@ class TinTucController extends Controller
     public function sendMail($id){
         $tintuc = TinTuc::find($id);
         $TieuDe = $tintuc->TieuDe;
-        $Url = 'tintuc/'.$tintuc->id.'/'.$tintuc->TieuDeKhongDau.'.html';
+        $Url = 'http://localhost/demo/btlweb/public/tintuc/'.$tintuc->id.'/'.$tintuc->TieuDeKhongDau.'.html';
         $email = User::Select('email')->where('ViTri', 'GS')
                                             ->orWhere('ViTri', 'PSG')
                                             ->orWhere('ViTri', 'TS')
