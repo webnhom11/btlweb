@@ -30,6 +30,8 @@
 
    <!--  Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    @yield('css')
 </head>
 
 <body>
@@ -63,6 +65,7 @@
     <!-- Chức năng so sánh -->
     <script src="admin_asset/stopwords.txt"></script>
     <script src="admin_asset/dist/js/cosim.js"></script>
+    
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>

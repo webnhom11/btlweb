@@ -28,8 +28,8 @@
                                 <th>Xem</th>
                                 <th>Nổi bật</th>
                                 <th>Gửi mail</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
+                                <th>Xóa</th>
+                                <th>Sửa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,8 +50,8 @@
                                         @endif
                                     </td>
                                     <td class="center"><i class="fa fa-send-o  fa-fw"></i><a href="admin/tintuc/mail/{{$tt->id}}" class="send"> Gửi mail</a></td>
-                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/tintuc/xoa/{{$tt->id}}" class="delete"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/tintuc/sua/{{$tt->id}}">Edit</a></td>
+                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/tintuc/xoa/{{$tt->id}}" class="delete"> Xóa</a></td>
+                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/tintuc/sua/{{$tt->id}}">Sửa</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

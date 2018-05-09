@@ -1,7 +1,7 @@
 <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
+                        <!-- <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
@@ -10,10 +10,10 @@
                                     </button>
                                 </span>
                             </div>
-                            <!-- /input-group -->
-                        </li>
+                            
+                        <!-- </li> -->
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="admin/dashboard"><i class="fa fa-dashboard fa-fw"></i>Bảng tin</a>
                         </li>
                         <li>
                             <a href="admin/theloai/danhsach"><i class="fa fa-bar-chart-o fa-fw"></i>Thể loại<span class="fa arrow"></span></a>
@@ -49,6 +49,14 @@
                                     <a href="admin/tintuc/them">Thêm</a>
                                 </li>
                             </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="admin/comment/danhsach"><i class="fa fa-comments-o fa-fw"></i>Phản hồi</a>                          
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="admin/thuvien/danhsach"><i class="fa fa-image fa-fw"></i>Thư viện</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
