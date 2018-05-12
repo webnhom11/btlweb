@@ -1,5 +1,18 @@
 @extends('admin.layout.index')
 
+@section('css')
+<style type="text/css">
+    #OpenImgUpload {
+        background-image:url('');
+        background-size:cover;
+        background-position: center;
+        height: 200px; width: 200px;
+        border: 1px solid #bbb;
+    }
+</style>
+@endsection
+
+
 @section('content')
 <div id="page-wrapper">
             <div class="container-fluid">
@@ -54,10 +67,20 @@
                                 <label>Nội Dung</label>
                                 <textarea id="noidung" name="NoiDung" class="form-control ckeditor" rows="5"></textarea>
                             </div>
-                            <div class="form-group">
+                           <!--  <div class="form-group">
                                 <label>Hình ảnh</label>
+                                <p></p>
                                 <input type="file" name="Hinh" class="form-control">
-                            </div>
+                            </div> -->       
+                            <div class="form-group">  
+                                <p><b>Ảnh đại diện</b></p>              
+                                <input type="file" id="imgupload" style="display:none" name="Hinh" /> 
+                                <button type="button" id="OpenImgUpload"><i id="plus" class="fa fa-plus" style="font-size:36px"></i></button>
+                                <p id="capnhat">Nhấn vào ảnh để thay đổi</p>
+                                <a href="#" id="xoa">Xóa ảnh đại diện</a>
+                            <div>
+                            <br>      
+
                             <div class="form-group">
                                 <label>Nổi bật</label>
                                 <label class="radio-inline">
@@ -66,16 +89,7 @@
                                 <label class="radio-inline">
                                     <input name="NoiBat" value="1" type="radio">Có
                                 </label>
-                            </div>
-                            <div class="form-group">
-                                <label>Thông báo chuyên gia</label>
-                                <label class="radio-inline">
-                                    <input name="GuiMail" value="0" checked="" type="radio">Không
-                                </label>
-                                <label class="radio-inline">
-                                    <input name="GuiMail" value="1" type="radio">Có
-                                </label>
-                            </div>
+                            </div>                           
                             <button type="submit" class="btn btn-default">Thêm</button>
                             <button type="reset" class="btn btn-default">Làm mới</button>
 
@@ -84,6 +98,16 @@
 
                             <!-- The Modal -->
                             <div id="myModal" class="modal">
+                              <!-- Modal content -->
+                              <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <div id="table">
+                                    
+                                </div>
+                              </div>
+                            </div>
+
+                            <div id="myModal2" class="modal">
                               <!-- Modal content -->
                               <div class="modal-content">
                                 <span class="close">&times;</span>
@@ -143,12 +167,12 @@
             }); 
 
 
-
-
             var modal = document.getElementById('myModal');
 
+            //thư viện
+            var modal2 = document.getElementById('myModal2');
             // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
+            var btn = document.getElementById("myBtn");         
 
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close")[0];
@@ -156,6 +180,7 @@
             // When the user clicks the button, open the modal 
             btn.onclick = function() {
                 modal.style.display = "block";
+                $('#side-menu').hide();
 
                 // lấy dữ liệu nhập từ nội dung
                 var noidung = CKEDITOR.instances["noidung"].getData();
@@ -182,12 +207,12 @@
                                     + '<th>Độ trùng lặp</th>'
                                     + '</tr>'
                                     + table + '</table>');
-
             }
 
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
                 modal.style.display = "none";
+                $('#side-menu').show();
             }
 
             // Hàm so sánh
@@ -202,6 +227,31 @@
                 const sim = Math.round((cosim(v1, v2)*100)*10)/10+"%";
                 array.push(sim);
             }
+
+
+            // bấm nút thư viện
+            $('#OpenImgUpload').click(function(){ $('#imgupload').trigger('click'); });
+
+            $('#capnhat').hide();
+            $('#xoa').hide();
+
+            $('#imgupload').change(function() {
+                var getImagePath = URL.createObjectURL(event.target.files[0]);
+                $('#OpenImgUpload').css('background-image', 'url(' + getImagePath + ')');
+                $("#plus").removeClass( "fa fa-plus" );
+                $('#capnhat').show();
+                $('#xoa').show();
+                // console.log($(this).val());
+            });
+
+            $('#xoa').click(function(e){
+                e.preventDefault();
+                $('#OpenImgUpload').css('background-image', 'url(\'\')');
+                $("#plus").addClass( "fa fa-plus" );
+                $('#capnhat').hide();
+                $('#xoa').hide();
+                $('#imgupload').val('');
+            });
         });
     </script>
 @endsection

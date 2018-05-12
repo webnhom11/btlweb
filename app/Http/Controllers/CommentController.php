@@ -9,11 +9,24 @@ use App\TinTuc;
 
 class CommentController extends Controller
 {
+
+    public function getPhanHoi(){
+        $binhluan = Comment::orderBy('created_at', 'DESC')->get();
+        return view('admin.comment.danhsach',['binhluan'=>$binhluan]);
+    }
+
     public function getXoa($id, $idTinTuc){
         $loaitin = Comment::find($id);
         $loaitin->delete();
 
         return redirect('admin/tintuc/sua/'.$idTinTuc)->with('thongbao', 'Xóa comment thành công');
+    }
+
+    public function getXoaBL($id){
+        $loaitin = Comment::find($id);
+        $loaitin->delete();
+
+        return redirect('admin/comment/danhsach')->with('thongbao', 'Xóa comment thành công');
     }
 
     public function postComment($id, Request $request){     
