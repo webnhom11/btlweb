@@ -152,7 +152,7 @@ class TinTucController extends Controller
     public function sendMail($id){
         $tintuc = TinTuc::find($id);
         $TieuDe = $tintuc->TieuDe;
-        $Url = 'http://localhost/demo/btlweb/public/tintuc/'.$tintuc->id.'/'.$tintuc->TieuDeKhongDau.'.html';
+        $Url = 'http://localhost/www/btlweb/public/tintuc/'.$tintuc->id.'/'.$tintuc->TieuDeKhongDau.'.html';
         $email = User::Select('email')->where('ViTri', 'GS')
                                             ->orWhere('ViTri', 'PSG')
                                             ->orWhere('ViTri', 'TS')
